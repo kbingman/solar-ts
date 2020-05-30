@@ -1,0 +1,39 @@
+{
+  "name": "ub-position",
+  "description": "Postioning Demo",
+  "version": "1.0.0",
+  "main": "babel.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "prepare": "snowpack",
+    "start": "snowpack dev",
+    "build": "snowpack build --bundle",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.1",
+    "@babel/preset-typescript": "^7.9.0",
+    "@snowpack/app-scripts-react": "^1.0.4",
+    "@snowpack/babel-plugin-asset-import": "^0.4.0",
+    "@snowpack/plugin-babel": "^0.4.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "babel-plugin-macros": "^2.8.0",
+    "jest": "^25.4.0",
+    "parcel-bundler": "^1.12.4",
+    "snowpack": "^2.0.0-0",
+    "typescript": "^3.8.0"
+  },
+  "dependencies": {
+    "@babel/preset-typescript": "^7.9.0"
+  },
+  "bundleDependencies": [
+    "@babel/preset-typescript"
+  ]
+}
