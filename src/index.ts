@@ -1,11 +1,11 @@
-import { createCanvas, resizeCanvas } from './canvas';
-import { drawSystem } from './system';
+import { createCanvas, resizeCanvas } from "./canvas";
+import { drawSystem } from "./system";
 
 /**
  * Main application
  */
 const main = () => {
-  const app = document.getElementById('root');
+  const app = document.getElementById("root");
 
   if (!app) {
     return;
@@ -14,10 +14,10 @@ const main = () => {
   let canvas = resizeCanvas(window, createCanvas(document));
   app.appendChild(canvas);
 
-  const bodies = [{ mass: 1 }]
+  //const bodies = [{ mass: 1 }];
   const renderCanvas = () => {
     canvas = resizeCanvas(window, canvas);
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) {
       return;
     }
@@ -28,7 +28,7 @@ const main = () => {
   };
 
   // Events
-  window.addEventListener('resize', renderCanvas);
+  window.addEventListener("resize", renderCanvas);
   renderCanvas();
   // window.requestAnimationFrame(renderCanvas);
 };

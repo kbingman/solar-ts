@@ -33,7 +33,7 @@ export const drawRect = (
 };
 
 /**
- * fill the entire canvas with the given color 
+ * fill the entire canvas with the given color
  */
 export const fillCanvas = (ctx: CanvasRenderingContext2D, color: string) => {
   drawRect(ctx, 0, 0, ctx.canvas.width, ctx.canvas.height, color);

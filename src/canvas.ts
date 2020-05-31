@@ -2,8 +2,8 @@
  * Canvas Renderer
  */
 export const createCanvas = (document: Document): HTMLCanvasElement => {
-  const canvas = document.createElement('CANVAS') as HTMLCanvasElement;
-  canvas.id = 'canvas'; // TODO allow id to be set for multiple layers
+  const canvas = document.createElement("CANVAS") as HTMLCanvasElement;
+  canvas.id = "canvas"; // TODO allow id to be set for multiple layers
 
   return canvas;
 };
@@ -11,7 +11,10 @@ export const createCanvas = (document: Document): HTMLCanvasElement => {
 /**
  * Canvas Risizer
  */
-export const resizeCanvas = (window: Window, canvas: HTMLCanvasElement): HTMLCanvasElement => {
+export const resizeCanvas = (
+  window: Window,
+  canvas: HTMLCanvasElement
+): HTMLCanvasElement => {
   const width = window.innerWidth;
   const height = window.innerHeight;
   const pixelRatio = window.devicePixelRatio;
@@ -20,8 +23,7 @@ export const resizeCanvas = (window: Window, canvas: HTMLCanvasElement): HTMLCan
   canvas.height = height * pixelRatio;
   canvas.style.height = `${height}px`;
   canvas.style.width = `${width}px`;
-  canvas.style.display = 'block';
+  canvas.style.display = "block";
 
   return canvas;
 };
-

@@ -1,21 +1,13 @@
 module.exports = {
   installOptions: {
-    clean: true,
-    installTypes: true,
+    installTypes: true
   },
-  dev: {
-    port: 3000,
-    src: 'src',
-    out: 'build',
-    fallback: 'index.html',
-    bundle: process.env.NODE_ENV === 'production',
-  },
+  plugins: ['@snowpack/plugin-babel', '@snowpack/plugin-parcel'],
+  devOptions: {},
   scripts: {
-    'plugin:ts,tsx': '@snowpack/plugin-babel',
     'mount:public': 'mount public --to /',
-    'mount:web_modules': 'mount web_modules',
-    'lintall:tsc': 'tsc --noEmit',
-    'lintall:tsc::watch': '$1 --watch',
-    'build:ts,tsx,js,jsx': 'babel --no-babelrc',
-  },
+    'mount:src': 'mount src --to /_dist_',
+    'run:tsc': 'tsc --noEmit',
+    'run:tsc::watch': '$1 --watch',
+  }
 };

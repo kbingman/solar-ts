@@ -1,4 +1,4 @@
-import { Body, Delta } from './types';
+import { Body, Delta } from "./types";
 
 /**
  * @param body1 - primary body
@@ -8,7 +8,7 @@ import { Body, Delta } from './types';
 export const calcDeltas = (body1: Body, body2: Body): Delta => ({
   dx: body2.x - body1.x,
   dy: body2.y - body1.y,
-  dz: body2.z - body1.z
+  dz: body2.z - body1.z,
 });
 
 /**
@@ -17,7 +17,7 @@ export const calcDeltas = (body1: Body, body2: Body): Delta => ({
  * @param dz - deltaZ
  * Given 3 deltas, calculates the squared distance
  */
-export const calcDistSquared = ({ dx, dy, dz}: Delta): number =>
+export const calcDistSquared = ({ dx, dy, dz }: Delta): number =>
   dx * dx + dy * dy + dz * dz;
 
 /**
@@ -33,7 +33,7 @@ export const calcForce = (
   mass: number,
   distSquared: number
 ): number =>
-  g * mass / (distSquared * Math.sqrt(distSquared + softeningConstant));
+  (g * mass) / (distSquared * Math.sqrt(distSquared + softeningConstant));
 
 /**
  * @param g Gravitational constant
@@ -49,13 +49,13 @@ export const calcAcceleration = (
   body2: Body
 ) => {
   const { dx, dy, dz } = calcDeltas(body1, body2);
-  const distSquared = calcDistSquared({dx, dy, dz});
+  const distSquared = calcDistSquared({ dx, dy, dz });
   const f = calcForce(g, softeningConstant, body2.m, distSquared);
 
   return {
     ax: dx * f,
     ay: dy * f,
-    az: dx * f
+    az: dx * f,
   };
 };
 
@@ -88,4 +88,9 @@ export const updateBodies = (
     body1.az = body1.az;
   }
   return bodies;
-}
+};
+
+export const updateBodiesWithConstants = (
+  g: number,
+  softeningConstant: number
+) => (bodies: Body[]) => updateBodies(g, softeningConstant, bodies);

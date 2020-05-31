@@ -1,4 +1,4 @@
-import { drawCircle, drawRect, fillCanvas } from './draw';
+import { drawCircle, fillCanvas } from "./draw";
 
 export const drawSystem = (ctx: CanvasRenderingContext2D) => {
   const canvas = ctx.canvas;
@@ -6,8 +6,8 @@ export const drawSystem = (ctx: CanvasRenderingContext2D) => {
   const width = canvas.width;
 
   // Fill background;
-  fillCanvas(ctx, '#111');
+  fillCanvas(ctx, "#111");
 
   // Draw sun
-  drawCircle(ctx, width / 2, height / 2, 10, 'yellow');
+  drawCircle(ctx, width / 2, height / 2, 10, "yellow");
 };
