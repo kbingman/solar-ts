@@ -1,4 +1,6 @@
+const config = require('@snowpack/app-scripts-react/jest.config.js')
+
 module.exports = {
-  ...require('@snowpack/app-scripts-react/jest.config.js')(),
+  ...config(),
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
 };
