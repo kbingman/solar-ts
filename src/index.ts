@@ -14,6 +14,7 @@ const main = () => {
   let canvas = resizeCanvas(window, createCanvas(document));
   app.appendChild(canvas);
 
+  const bodies = [{ mass: 1 }]
   const renderCanvas = () => {
     canvas = resizeCanvas(window, canvas);
     const ctx = canvas.getContext('2d');
@@ -21,14 +22,15 @@ const main = () => {
       return;
     }
 
+    console.log(Date.now());
     drawSystem(ctx);
-    window.requestAnimationFrame(renderCanvas);
+    // window.requestAnimationFrame(renderCanvas);
   };
 
   // Events
   window.addEventListener('resize', renderCanvas);
-  // renderCanvas();
-  window.requestAnimationFrame(renderCanvas);
+  renderCanvas();
+  // window.requestAnimationFrame(renderCanvas);
 };
 
 main();

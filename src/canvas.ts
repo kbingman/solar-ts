@@ -2,8 +2,10 @@
  * Canvas Renderer
  */
 export const createCanvas = (document: Document): HTMLCanvasElement => {
-  const canvas = document.createElement('CANVAS');
-  return canvas as HTMLCanvasElement;
+  const canvas = document.createElement('CANVAS') as HTMLCanvasElement;
+  canvas.id = 'canvas'; // TODO allow id to be set for multiple layers
+
+  return canvas;
 };
 
 /**
