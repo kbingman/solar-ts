@@ -1,6 +1,6 @@
 {
   "name": "ub-position",
-  "description": "Postioning Demo",
+  "description": "Gravity",
   "version": "1.0.0",
   "main": "babel.config.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "build": "snowpack build",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
@@ -25,6 +25,7 @@
     "@snowpack/babel-plugin-asset-import": "^0.8.0",
     "@snowpack/plugin-babel": "^1.0.0",
     "@snowpack/plugin-parcel": "^1.0.0",
+    "@types/jest": "^25.2.3",
     "babel-plugin-macros": "^2.8.0",
     "jest": "^26.0.1",
     "parcel-bundler": "^1.12.4",

@@ -1,11 +1,12 @@
 export interface Body {
+  name?: string;
   x: number;
   y: number;
   z: number;
   m: number;
-  ax: number;
-  ay: number;
-  az: number;
+  vx: number;
+  vy: number;
+  vz: number;
 }
 
 export interface Delta {

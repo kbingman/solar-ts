@@ -53,9 +53,9 @@ export const calcAcceleration = (
   const f = calcForce(g, softeningConstant, body2.m, distSquared);
 
   return {
-    ax: dx * f,
-    ay: dy * f,
-    az: dx * f,
+    vx: dx * f,
+    vy: dy * f,
+    vz: dx * f,
   };
 };
 
@@ -74,18 +74,18 @@ export const updateBodies = (
     for (const body2 of bodies) {
       if (body1 !== body2) {
         const acc = calcAcceleration(g, softeningConstant, body1, body2);
-        body1.ax = body1.ax + acc.ax;
-        body1.ay = body1.ay + acc.ay;
-        body1.az = body1.ay + acc.az;
+        body1.vx = body1.vx + acc.vx;
+        body1.vy = body1.vy + acc.vy;
+        body1.vz = body1.vy + acc.vz;
       }
     }
 
-    body1.x = body1.x + body1.ax;
-    body1.y = body1.y + body1.ay;
-    body1.z = body1.z + body1.az;
-    body1.ax = body1.ax;
-    body1.ay = body1.ay;
-    body1.az = body1.az;
+    body1.x = body1.x + body1.vx;
+    body1.y = body1.y + body1.vy;
+    body1.z = body1.z + body1.vz;
+    body1.vx = body1.vx;
+    body1.vy = body1.vy;
+    body1.vz = body1.vz;
   }
   return bodies;
 };
