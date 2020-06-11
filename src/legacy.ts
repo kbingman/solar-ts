@@ -1,4 +1,6 @@
-export const updatePositionVectors = (dt: number, masses: any[]) => {
+import { Body } from "./types";
+
+export const updatePositionVectors = (dt: number, masses: Body[]) => {
   for (const mass of masses) {
     mass.x += mass.vx * dt;
     mass.y += mass.vy * dt;
@@ -11,7 +13,7 @@ export const updatePositionVectors = (dt: number, masses: any[]) => {
 export const updateAccelerationVectors = (
   g: number,
   softeningConstant: number,
-  masses: any[]
+  masses: Body[]
 ) => {
   for (const massI of masses) {
     let ax = 0;
@@ -43,7 +45,7 @@ export const updateAccelerationVectors = (
   return masses;
 };
 
-export const updateVelocityVectors = (dt: number, masses: any[]) => {
+export const updateVelocityVectors = (dt: number, masses: Body[]) => {
   for (const massI of masses) {
     massI.vx += (massI.ax || 0) * dt;
     massI.vy += (massI.ay || 0) * dt;
@@ -56,7 +58,7 @@ export const updateBodies = (
   g: number,
   softeningConstant: number,
   dt: number
-) => (masses: any[]) =>
+) => (masses: Body[]) =>
   updateVelocityVectors(
     dt,
     updateAccelerationVectors(
