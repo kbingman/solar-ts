@@ -1,0 +1,14 @@
+Horizons> Oberon
+*******************************************************************************
+ Revised: Jun 17, 2016             Oberon  / (Uranus)                       704
+
+ SATELLITE PHYSICAL PROPERTIES:
+  Radius (km)           = 761.4  +- 2.6     Density (g cm^-3)   =  1.63 +- 0.05
+  Mass (10^20 kg )      =  30.14 +- 0.75    Geometric Albedo    =  0.24 
+                                            V(1,0)              = +1.23
+
+ SATELLITE ORBITAL DATA:
+  Semi-major axis, a (km) = 582.6 (10^3)    Orbital period      = 13.463 d
+  Eccentricity, e         =   0.0008        Rotational period   = Synchronous
+  Inclination, i  (deg)   =   0.10
+*******************************************************************************

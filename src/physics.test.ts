@@ -2,8 +2,6 @@ import { describe, test, expect } from 'vitest';
 import {
   updatePositionVectors,
   updateAccelerationVectors,
-  updateVelocityVectors,
-  updateBodies,
 } from './physics';
 import { planets } from './bodies';
 
