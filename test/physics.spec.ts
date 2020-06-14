@@ -50,7 +50,7 @@ test('update bodies', () => {
   expect(bodies[1].vz).toBe(-0.31551070524080477);
 });
 
-test('update bodies', () => {
+test.skip('update bodies', () => {
   const updateBodies = updateBodiesWithConstants(G, SOFTENING_CONSTANT);
   // console.log(calcDistSquared(calcDeltas(body1, body2)));
   console.log(bodies[3]);
