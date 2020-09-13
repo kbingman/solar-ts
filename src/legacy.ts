@@ -1,5 +1,8 @@
 import { Body } from "./types";
 
+/**
+ * Updates vectors
+ */
 export const updatePositionVectors = (dt: number, masses: Body[]) => {
   for (const mass of masses) {
     mass.x += mass.vx * dt;
@@ -10,6 +13,9 @@ export const updatePositionVectors = (dt: number, masses: Body[]) => {
   return masses;
 };
 
+/**
+ * Updates acceleration vectors
+ */
 export const updateAccelerationVectors = (
   g: number,
   softeningConstant: number,
@@ -45,6 +51,9 @@ export const updateAccelerationVectors = (
   return masses;
 };
 
+/**
+ * Updates velocities vectors
+ */
 export const updateVelocityVectors = (dt: number, masses: Body[]) => {
   for (const massI of masses) {
     massI.vx += (massI.ax || 0) * dt;
@@ -54,6 +63,9 @@ export const updateVelocityVectors = (dt: number, masses: Body[]) => {
   return masses;
 };
 
+/**
+ * Updates all bodies
+ */
 export const updateBodies = (
   g: number,
   softeningConstant: number,
@@ -68,84 +80,3 @@ export const updateBodies = (
     )
   );
 
-/**
- * Gravitational n-body algorithm
- */
-export class nBodyProblem {
-  g: number;
-  dt: number;
-  softeningConstant: number;
-  masses: any[];
-
-  constructor(params: any) {
-    this.g = params.g;
-    this.dt = params.dt;
-    this.softeningConstant = params.softeningConstant;
-
-    this.masses = params.masses;
-  }
-
-  updatePositionVectors() {
-    const massesLen = this.masses.length;
-
-    for (let i = 0; i < massesLen; i++) {
-      const massI = this.masses[i];
-
-      massI.x += massI.vx * this.dt;
-      massI.y += massI.vy * this.dt;
-      massI.z += massI.vz * this.dt;
-    }
-
-    return this;
-  }
-
-  updateVelocityVectors() {
-    const massesLen = this.masses.length;
-
-    for (let i = 0; i < massesLen; i++) {
-      const massI = this.masses[i];
-
-      massI.vx += (massI.ax || 0) * this.dt;
-      massI.vy += (massI.ay || 0) * this.dt;
-      massI.vz += (massI.az || 0) * this.dt;
-    }
-  }
-
-  updateAccelerationVectors() {
-    const massesLen = this.masses.length;
-
-    for (let i = 0; i < massesLen; i++) {
-      let ax = 0;
-      let ay = 0;
-      let az = 0;
-
-      const massI = this.masses[i];
-
-      for (let j = 0; j < massesLen; j++) {
-        if (i !== j) {
-          const massJ = this.masses[j];
-
-          const dx = massJ.x - massI.x;
-          const dy = massJ.y - massI.y;
-          const dz = massJ.z - massI.z;
-
-          const distSq = dx * dx + dy * dy + dz * dz;
-
-          const f =
-            (this.g * massJ.m) /
-            (distSq * Math.sqrt(distSq + this.softeningConstant));
-
-          ax += dx * f;
-          ay += dy * f;
-          az += dz * f;
-        }
-      }
-
-      massI.ax = ax;
-      massI.ay = ay;
-      massI.az = az;
-    }
-
-    return this;
-  }
-}

@@ -1,6 +1,6 @@
 export interface Body {
   name: string;
-  color: string;
+  color?: string;
   m: number;
   r?: number;
   x: number;
