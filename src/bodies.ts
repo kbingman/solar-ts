@@ -1,4 +1,6 @@
-export const bodies1 = [
+import { Body } from "./types";
+
+export const bodies: Body[] = [
   {
     name: "Sun",
     color: "yellow",
@@ -94,7 +96,7 @@ export const bodies1 = [
   },
   {
     name: "Ceres",
-    m: "4.504e-10",
+    m: 4.504e-10,
     x: 2.269143627553755,
     y: -1.852111476441395,
     z: -4.776304878730481e-1,

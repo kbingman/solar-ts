@@ -13,8 +13,8 @@ import { Body as Nbody } from '../src/types';
 const G = 39.5;
 const SOFTENING_CONSTANT = 0.1;
 
-const body1 = { x: 0, y: 0, z: 0, m: 1, vx: 0, vy: 0, vz: 0 };
-const body2 = { x: 1, y: 2, z: 0, m: 1.1, vx: 0, vy: 0, vz: 0 };
+const body1 = { name: 'body1', x: 0, y: 0, z: 0, m: 1, vx: 0, vy: 0, vz: 0 };
+const body2 = { name: 'body2', x: 1, y: 2, z: 0, m: 1.1, vx: 0, vy: 0, vz: 0 };
 
 test('calcDeltas', () => {
   expect(calcDeltas(body1, body2)).toEqual({ dx: 1, dy: 2, dz: 0 });
@@ -52,11 +52,8 @@ test('update bodies', () => {
 
 test('update bodies', () => {
   const updateBodies = updateBodiesWithConstants(G, SOFTENING_CONSTANT);
-  // console.log(calcDistSquared(calcDeltas(body1, body2)));
-  console.log(bodies[3]);
   const results = updateBodies(bodies as Nbody[]);
-  // console.log(calcDistSquared(calcDeltas(body1, body2)));
 
-  expect(results[0].x).toBe(0.00004209706147379481);
-  expect(results[0].vx).toBe(0.00004360030875253128);
+  expect(results[0].x).toBe(-0.00466650135019521);
+  expect(results[0].vx).toBe(0.0004625920676439864);
 });

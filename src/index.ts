@@ -1,6 +1,6 @@
 import { createCanvas, resizeCanvas } from "./canvas";
 import { drawSystem, updateSystem } from "./system";
-import { bodies1 as bodies } from "./bodies";
+import { bodies } from "./bodies";
 import { updateBodies } from "./legacy";
 import { Body as Nbody } from "./types";
 
@@ -30,7 +30,7 @@ const main = () => {
 
   const resize = () => {
     resizeCanvas(window, canvas);
-  }
+  };
 
   const renderCanvas = () => {
     // console.time('render');
