@@ -30,7 +30,7 @@ const main = () => {
 
   const resize = () => {
     resizeCanvas(window, canvas);
-  }
+  };
 
   const renderCanvas = () => {
     // console.time('render');

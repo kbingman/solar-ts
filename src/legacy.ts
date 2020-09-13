@@ -79,4 +79,3 @@ export const updateBodies = (
       updatePositionVectors(dt, masses)
     )
   );
-
