@@ -9,14 +9,14 @@ const createMockCtx = () => ({
     height: 128
   },
   fill: jest.fn(),
-  fillRect: jest.fn(),
+  rect: jest.fn(),
 } as unknown as CanvasRenderingContext2D);
 
 test('drawSystem fills the background and adds a star', () => {
   const ctx = createMockCtx();
   drawSystem(ctx, bodies);
 
-  expect(ctx.fillRect).toHaveBeenCalledWith(0, 0, 128, 128);
+  expect(ctx.rect).toHaveBeenCalledWith(0, 0, 128, 128);
   expect(ctx.arc).toHaveBeenCalledTimes(bodies.length)
 });
 

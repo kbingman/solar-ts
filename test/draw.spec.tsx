@@ -8,14 +8,14 @@ const createMockCtx = () => ({
     height: 48
   },
   fill: jest.fn(),
-  fillRect: jest.fn(),
+  rect: jest.fn(),
 } as unknown as CanvasRenderingContext2D);
 
 test('drawRect', () => {
   const ctx = createMockCtx();
-  drawRect(ctx, 0, 0, 24, 24, 'chartreuse');
+  drawRect(ctx, 0, 0, 24, 24, 'chartreuse', null);
 
-  expect(ctx.fillRect).toHaveBeenCalledWith(0, 0, 24, 24);
+  expect(ctx.rect).toHaveBeenCalledWith(0, 0, 24, 24);
   expect(ctx.fillStyle).toBe('chartreuse');
   expect(ctx.fill).toHaveBeenCalled();
 });
@@ -34,7 +34,7 @@ test('fillCanvas', () => {
   const ctx = createMockCtx();
   fillCanvas(ctx, 'lightcoral');
 
-  expect(ctx.fillRect).toHaveBeenCalledWith(0, 0, 32, 48);
+  expect(ctx.rect).toHaveBeenCalledWith(0, 0, 32, 48);
   expect(ctx.fillStyle).toBe('lightcoral');
   expect(ctx.fill).toHaveBeenCalled();
 });
