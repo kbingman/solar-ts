@@ -25,16 +25,23 @@ export const drawRect = (
   y: number,
   width: number,
   height: number,
-  fill: string
+  fill: string | null,
+  stroke: string | null,
 ) => {
-  ctx.fillRect(x, y, width, height);
-  ctx.fillStyle = fill;
-  ctx.fill();
+  ctx.rect(x, y, width, height);
+  if (fill) {
+    ctx.fillStyle = fill;
+    ctx.fill();
+  }
+  if (stroke) {
+    ctx.strokeStyle = stroke;
+    ctx.stroke();
+  }
 };
 
 /**
  * fill the entire canvas with the given color
  */
 export const fillCanvas = (ctx: CanvasRenderingContext2D, color: string) => {
-  drawRect(ctx, 0, 0, ctx.canvas.width, ctx.canvas.height, color);
+  drawRect(ctx, 0, 0, ctx.canvas.width, ctx.canvas.height, color, null);
 };

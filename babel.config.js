@@ -6,4 +6,9 @@ module.exports = {
     '@snowpack/babel-plugin-asset-import',
     'babel-plugin-macros',
   ],
+  env: {
+    test: {
+      plugins: ['@babel/plugin-transform-modules-commonjs'],
+    },
+  },
 };

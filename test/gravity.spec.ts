@@ -3,7 +3,7 @@ import {
   updateAccelerationVectors, 
   updateVelocityVectors,
   updateBodies
-} from '../src/legacy';
+} from '../src/gravity';
 import { bodies } from '../src/bodies';
 
 const G = 39.5;

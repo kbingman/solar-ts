@@ -1,14 +1,20 @@
-import { drawCircle, fillCanvas } from "./draw";
+import { drawCircle, drawRect, fillCanvas } from "./draw";
 import { Body } from "./types";
 
 const PIXELS_AU = 42;
 const DAYS_YEAR = 365.25;
 
+/**
+ * gets the body radius based on mass, for display only
+ */
 export const getRadius = (mass: number) => {
   const r = Math.log10(mass * 10e7);
   return r > 1 ? r : 1;
 };
 
+/**
+ * Updates all bodies
+ */
 export const updateSystem = (system: Body[]) =>
   system.map((body) => ({
     ...body,
@@ -18,6 +24,11 @@ export const updateSystem = (system: Body[]) =>
     vz: body.vz * DAYS_YEAR,
   }));
 
+export const getCoord = (center: number, coord: number) => center + coord * PIXELS_AU;
+
+/**
+ * Draw bodies
+ */
 export const drawBody = (
   ctx: CanvasRenderingContext2D,
   body: Body,
@@ -28,16 +39,27 @@ export const drawBody = (
   const width = canvas.width;
   const centerX = width / 2;
   const centerY = height / 2;
+  const x = getCoord(centerX, body.x)
+  const y = getCoord(centerY, body.y)
+
+  if (body.active) {
+    ctx.font = "24px Helvetica Neue";
+    ctx.fillStyle = 'white';
+    ctx.fillText(body.name, x + 16, y + 8);
+  }
 
   drawCircle(
     ctx,
-    centerX + body.x * PIXELS_AU,
-    centerY + body.y * PIXELS_AU,
+    x,
+    y,
     body.r || 1,
     color
   );
 };
 
+/**
+ * Draw bodies
+ */
 export const drawSystem = (ctx: CanvasRenderingContext2D, system: Body[]) => {
   // Fill background;
   fillCanvas(ctx, "#111");

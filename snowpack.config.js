@@ -2,7 +2,7 @@ module.exports = {
   installOptions: {
     installTypes: true
   },
-  plugins: ['@snowpack/plugin-babel', '@snowpack/plugin-parcel'],
+  plugins: ['@snowpack/plugin-babel', '@snowpack/plugin-webpack'],
   devOptions: {},
   scripts: {
     'mount:public': 'mount public --to /',
