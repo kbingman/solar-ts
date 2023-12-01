@@ -1,7 +1,7 @@
 import { createCanvas, resizeCanvas } from './canvas';
 import { drawSystem, updateSystem } from './system';
-import { bodies } from './bodies';
-import { updateBodies } from './legacy';
+import { planets as bodies } from './bodies';
+import { updateBodies } from './physics';
 import { Body as Nbody } from './types';
 
 const G = 39.5;
@@ -13,7 +13,7 @@ const updateBodiesWithConstants = updateBodies(G, SOFTENING_CONSTANT, DT);
 /**
  * Main application
  */
-export const renderCanvas = (): HTMLCanvasElement | undefined => {
+export const renderSystem = (): HTMLCanvasElement | undefined => {
   const system = updateSystem(bodies as Nbody[]);
   const canvas = createCanvas(document);
   const ctx = canvas.getContext('2d');

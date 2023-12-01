@@ -15,6 +15,11 @@ export const updatePositionVectors = (dt: number, masses: Body[]) => {
 
 /**
  * Updates acceleration vectors
+ *
+ * @param {number} g - the gravitational constant
+ * @param {number} softeningConstant - the softening constant
+ * @param {Body[]} masses
+ *
  */
 export const updateAccelerationVectors = (
   g: number,
@@ -53,6 +58,9 @@ export const updateAccelerationVectors = (
 
 /**
  * Updates velocities vectors
+ *
+ * @param {number} dt - the timestep
+ * @param {Body[]} masses - the bodies
  */
 export const updateVelocityVectors = (dt: number, masses: Body[]) => {
   for (const massI of masses) {
@@ -65,17 +73,25 @@ export const updateVelocityVectors = (dt: number, masses: Body[]) => {
 
 /**
  * Updates all bodies
+ *
+ * @param {number} g - the gravitational constant
+ * @param {number} softeningConstant - the softening constant
+ * @param {number} dt - the timestep
+ *
+ * @returns updated bodies
  */
 export const updateBodies = (
   g: number,
   softeningConstant: number,
   dt: number
-) => (masses: Body[]) =>
-  updateVelocityVectors(
-    dt,
-    updateAccelerationVectors(
-      g,
-      softeningConstant,
-      updatePositionVectors(dt, masses)
-    )
-  );
+): ((masses: Body[]) => Body[]) => {
+  return (masses: Body[]) =>
+    updateVelocityVectors(
+      dt,
+      updateAccelerationVectors(
+        g,
+        softeningConstant,
+        updatePositionVectors(dt, masses)
+      )
+    );
+};
