@@ -1,8 +1,8 @@
-import { createCanvas, resizeCanvas } from "./canvas";
-import { drawSystem, updateSystem } from "./system";
-import { bodies } from "./bodies";
-import { updateBodies } from "./legacy";
-import { Body as Nbody } from "./types";
+import { createCanvas, resizeCanvas } from './canvas';
+import { drawSystem, updateSystem } from './system';
+import { bodies } from './bodies';
+import { updateBodies } from './legacy';
+import { Body as Nbody } from './types';
 
 const G = 39.5;
 const SOFTENING_CONSTANT = 0.15;
@@ -13,20 +13,13 @@ const updateBodiesWithConstants = updateBodies(G, SOFTENING_CONSTANT, DT);
 /**
  * Main application
  */
-const main = () => {
-  const app = document.getElementById("root");
-
-  if (!app) {
-    return;
-  }
-
+export const renderCanvas = (): HTMLCanvasElement | undefined => {
   const system = updateSystem(bodies as Nbody[]);
   const canvas = createCanvas(document);
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext('2d');
   if (!ctx) {
     return;
   }
-  app.appendChild(canvas);
 
   const resize = () => {
     resizeCanvas(window, canvas);
@@ -42,8 +35,8 @@ const main = () => {
   };
 
   // Events
-  window.addEventListener("resize", resize);
+  window.addEventListener('resize', resize);
   window.requestAnimationFrame(renderCanvas);
-};
 
-main();
+  return canvas;
+};

@@ -1,9 +1,9 @@
-import { Body } from "./types";
+import { Body } from './types';
 
 export const bodies: Body[] = [
   {
-    name: "Sun",
-    color: "yellow",
+    name: 'Sun',
+    color: 'yellow',
     m: 1,
     x: -5.129093417839196e-3,
     y: 6.987018492991927e-3,
@@ -13,7 +13,7 @@ export const bodies: Body[] = [
     vz: 2.325966506827774e-7,
   },
   {
-    name: "Mercury",
+    name: 'Mercury',
     m: 1.65956463e-7,
     x: -3.316017910757047e-1,
     y: -2.973209403224569e-1,
@@ -23,7 +23,7 @@ export const bodies: Body[] = [
     vz: -2.811134853182825e-3,
   },
   {
-    name: "Venus",
+    name: 'Venus',
     m: 2.44699613e-6,
     x: -7.047924245815236e-2,
     y: -7.167119800814145e-1,
@@ -33,8 +33,8 @@ export const bodies: Body[] = [
     vz: -1.180448719987304e-3,
   },
   {
-    name: "Earth",
-    color: "lightblue",
+    name: 'Earth',
+    color: 'lightblue',
     m: 3.0024584e-6,
     x: -1.768510681892129e-1,
     y: -9.93763542974525e-1,
@@ -44,8 +44,8 @@ export const bodies: Body[] = [
     vz: 7.228844834658498e-7,
   },
   {
-    name: "Mars",
-    color: "lightcoral",
+    name: 'Mars',
+    color: 'lightcoral',
     m: 3.213e-7,
     x: 5.94947322274935e-1,
     y: -1.269190485724614,
@@ -55,7 +55,7 @@ export const bodies: Body[] = [
     vz: -1.735088334887448e-4,
   },
   {
-    name: "Jupiter",
+    name: 'Jupiter',
     m: 0.0009543,
     x: 1.698310768553416,
     y: -4.872344199660085,
@@ -65,7 +65,7 @@ export const bodies: Body[] = [
     vz: -1.690988529761901e-4,
   },
   {
-    name: "Saturn",
+    name: 'Saturn',
     m: 0.0002857,
     x: 4.564257055992453,
     y: -8.905926714419381,
@@ -75,7 +75,7 @@ export const bodies: Body[] = [
     vz: -2.295085540833512e-4,
   },
   {
-    name: "Uranus",
+    name: 'Uranus',
     m: 0.00004365,
     x: 1.584290899141663e1,
     y: 1.187252209048466e1,
@@ -85,7 +85,7 @@ export const bodies: Body[] = [
     vz: 4.20501993113747e-5,
   },
   {
-    name: "Neptune",
+    name: 'Neptune',
     m: 0.00005149,
     x: 2.933947453532754e1,
     y: -5.858906923373532,
@@ -95,7 +95,7 @@ export const bodies: Body[] = [
     vz: -7.7366133572782e-5,
   },
   {
-    name: "Ceres",
+    name: 'Ceres',
     m: 4.504e-10,
     x: 2.269143627553755,
     y: -1.852111476441395,
@@ -105,7 +105,7 @@ export const bodies: Body[] = [
     vz: -8.860648359260372e-4,
   },
   {
-    name: "Vesta",
+    name: 'Vesta',
     m: 1.302e-10,
     x: -3.518761826061244e-1,
     y: 2.534349927280995,
@@ -115,7 +115,7 @@ export const bodies: Body[] = [
     vz: 1.281498361183152e-3,
   },
   {
-    name: "Eros",
+    name: 'Eros',
     m: 3.362e-15,
     x: 1.412519793181449,
     y: 3.784828634972144e-1,
