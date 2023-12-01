@@ -1,4 +1,4 @@
-import { Body } from "./types";
+import { Body } from './types';
 
 /**
  * Updates vectors

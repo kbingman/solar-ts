@@ -1,4 +1,4 @@
-import { Body, Delta } from "./types";
+import { Body, Delta } from './types';
 
 /**
  * @param body1 - primary body
@@ -24,8 +24,7 @@ export const calcDistSquared = ({ dx, dy, dz }: Delta): number =>
  * @param g Gravitational constant
  * @param softeningConstant
  * @param mass of body - mass of the primary body
- * @param distSquared - the square of the dist of the 2 bodies
- * calculates the force of a given body and dist
+ * @param distSquared - the square of the dist of the 2 bodies calculates the force of a given body and dist
  */
 export const calcForce = (
   g: number,
@@ -39,8 +38,7 @@ export const calcForce = (
  * @param g Gravitational constant
  * @param softeningConstant
  * @param body1 - the primary body
- * @param body2 - the secondary body
- * calculates the force of a given body and dist
+ * @param body2 - the secondary body calculates the force of a given body and dist
  */
 export const calcAcceleration = (
   g: number,
@@ -60,10 +58,8 @@ export const calcAcceleration = (
 };
 
 /**
- * Loop through all bodies
- * Curry calcAcceleration with first three variables
- * Loop through all bodies getting acl for each other body
- * update each body
+ * Loop through all bodies Curry calcAcceleration with first three variables
+ * Loop through all bodies getting acl for each other body update each body
  */
 export const updateBodies = (
   g: number,
@@ -93,4 +89,6 @@ export const updateBodies = (
 export const updateBodiesWithConstants = (
   g: number,
   softeningConstant: number
-) => (bodies: Body[]) => updateBodies(g, softeningConstant, bodies);
+) => {
+  return (bodies: Body[]) => updateBodies(g, softeningConstant, bodies);
+};

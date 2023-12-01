@@ -1,5 +1,5 @@
-import { drawCircle, fillCanvas } from "./draw";
-import { Body } from "./types";
+import { drawCircle, fillCanvas } from './draw';
+import { Body } from './types';
 
 const PIXELS_AU = 42;
 const DAYS_YEAR = 365.25;
@@ -40,10 +40,10 @@ export const drawBody = (
 
 export const drawSystem = (ctx: CanvasRenderingContext2D, system: Body[]) => {
   // Fill background;
-  fillCanvas(ctx, "#111");
+  fillCanvas(ctx, '#111');
 
   // Draw sun
   for (const body of system) {
-    drawBody(ctx, body, body.color || "white");
+    drawBody(ctx, body, body.color || 'white');
   }
 };
