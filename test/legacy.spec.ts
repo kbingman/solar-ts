@@ -1,8 +1,9 @@
-import { 
-  updatePositionVectors, 
-  updateAccelerationVectors, 
+import { test, expect } from 'vitest';
+import {
+  updatePositionVectors,
+  updateAccelerationVectors,
   updateVelocityVectors,
-  updateBodies
+  updateBodies,
 } from '../src/legacy';
 import { bodies } from '../src/bodies';
 
@@ -21,7 +22,7 @@ test('functional', () => {
 test('updatePositionVectors', () => {
   const masses = JSON.parse(JSON.stringify(bodies));
   const x = masses[3].x;
-  updatePositionVectors(DT, masses)
+  updatePositionVectors(DT, masses);
 
   expect(x - masses[3].x).toBe(-0.00013331230969529373);
 });
@@ -29,7 +30,7 @@ test('updatePositionVectors', () => {
 test('updateAccelerationVectors', () => {
   const masses = JSON.parse(JSON.stringify(bodies));
   const x = masses[3].ax || 0;
-  updateAccelerationVectors(G, SOFTENING_CONSTANT, masses)
+  updateAccelerationVectors(G, SOFTENING_CONSTANT, masses);
 
   expect(x - masses[3].ax).toBe(-6.055247336454543);
 });
@@ -37,7 +38,7 @@ test('updateAccelerationVectors', () => {
 test('updateVelocityVectors', () => {
   const masses = JSON.parse(JSON.stringify(bodies));
   const x = masses[3].vx || 0;
-  updateVelocityVectors(DT, bodies)
+  updateVelocityVectors(DT, bodies);
 
   expect(x - masses[3].vx).toBe(0);
 });
