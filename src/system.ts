@@ -1,5 +1,5 @@
 import { drawCircle, fillCanvas } from './draw';
-import { Body } from './types';
+import { Planet, PointMass, Vector } from './types';
 
 const PIXELS_AU = 42;
 const DAYS_YEAR = 365.25;
@@ -9,20 +9,13 @@ export const getRadius = (mass: number) => {
   return Math.max(1, r);
 };
 
-export const updateSystem = (system: Body[]) =>
+export const updateSystem = (system: PointMass[]) =>
   system.map((body) => ({
     ...body,
-    vx: body.vx * DAYS_YEAR,
-    vy: body.vy * DAYS_YEAR,
-    vz: body.vz * DAYS_YEAR,
-    velocity: (body.velocity || []).map((v) => v * DAYS_YEAR),
+    velocity: (body.velocity || []).map((v) => v * DAYS_YEAR) as Vector,
   }));
 
-export const drawBody = (
-  ctx: CanvasRenderingContext2D,
-  body: Body,
-  color: string
-) => {
+export const drawBody = (ctx: CanvasRenderingContext2D, body: Planet) => {
   const canvas = ctx.canvas;
   const height = canvas.height;
   const width = canvas.width;
@@ -31,19 +24,22 @@ export const drawBody = (
 
   drawCircle(
     ctx,
-    centerX + (body.x || body.position[0]) * PIXELS_AU,
-    centerY + (body.y || body.position[1]) * PIXELS_AU,
+    centerX + body.position[0] * PIXELS_AU,
+    centerY + body.position[1] * PIXELS_AU,
     getRadius(body.m),
-    color
+    body.color
   );
 };
 
-export const drawSystem = (ctx: CanvasRenderingContext2D, system: Body[]) => {
+export const drawSystem = (
+  ctx: CanvasRenderingContext2D,
+  system: PointMass[]
+) => {
   // Fill background;
   fillCanvas(ctx, '#111');
 
   // Draw sun
   for (const body of system) {
-    drawBody(ctx, body, body.color || 'white');
+    drawBody(ctx, body);
   }
 };
