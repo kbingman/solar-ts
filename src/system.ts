@@ -1,5 +1,5 @@
 import { drawCircle, fillCanvas } from './draw';
-import { Planet, PointMass, Vector } from './types';
+import { Planet, Vector } from './types';
 
 const PIXELS_AU = 42;
 const DAYS_YEAR = 365.25;
@@ -9,7 +9,7 @@ export const getRadius = (mass: number) => {
   return Math.max(1, r);
 };
 
-export const updateSystem = (system: PointMass[]) =>
+export const updateSystem = (system: Planet[]) =>
   system.map((body) => ({
     ...body,
     velocity: (body.velocity || []).map((v) => v * DAYS_YEAR) as Vector,
@@ -31,10 +31,7 @@ export const drawBody = (ctx: CanvasRenderingContext2D, body: Planet) => {
   );
 };
 
-export const drawSystem = (
-  ctx: CanvasRenderingContext2D,
-  system: PointMass[]
-) => {
+export const drawSystem = (ctx: CanvasRenderingContext2D, system: Planet[]) => {
   // Fill background;
   fillCanvas(ctx, '#111');
 
